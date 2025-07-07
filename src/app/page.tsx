@@ -1,8 +1,11 @@
-import { Button } from '@/components/ui/button';
+import { caller } from '@/trpc/server';
 import React from 'react';
 
-const Page = () => {
-  return <div className="font-bold text-rose-500"></div>;
+const Page = async () => {
+  const data = await caller.createAI({ text: 'hello' });
+  console.log(data.greeting);
+
+  return <div className="font-bold text-5xl text-rose-500">Hello world</div>;
 };
 
 export default Page;
